@@ -19,4 +19,22 @@ jobs:
       run: npm install
 
     - name: Build app
-      run: np run build 
+      run: npm run build 
+    
+  test:
+    needs: build
+    runs-on: windows-latest
+    steps:
+    - name: Check out repository code
+      users: actions/checkout@v3
+
+    - name: Setup node
+      users: actions/checkout@v3
+      with:
+        node-version: 18.x
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Test app
+      run: npm run build 
